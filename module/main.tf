@@ -1,6 +1,6 @@
 module mypythonapp {
     source = "moulayhafidelhafa/release/helm"
-    version = "0.0.2"
+    version = "0.0.3"
     name = "python"
     namespace = "wordpress"
     annotations = {
