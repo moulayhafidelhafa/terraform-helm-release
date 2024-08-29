@@ -1,32 +1,19 @@
 module mypythonapp {
-    source = "../terraform/"
+    source = "moulayhafidelhafa/release/helm"
+    version = "0.0.7"
     name = "python"
-    namespace = "python-namespace"
-    chart     = "../myapp"
+    namespace = "wordpress"
+    annotations = {
+    name = "new-annotation"
+    }
+    labels = {
+      name = "new-labels"
+    }
   values  = [<<EOF
 replicaCount: 1
 
 image:
   repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
-  EOF
-  ]
-}
-
-
-module mygoapp {
-    source = "../terraform/"
-    name = "go"
-    namespace = "go-namespace"
-    chart     = "../myapp"
-
-      values  = [<<EOF
-replicaCount: 2
-
-image:
-  repository: wordpress
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
